@@ -1,0 +1,689 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-1",
+      "team": "New York Yankees",
+      "name": "Yankee Stadium",
+      "league": "MLB",
+      "neighborhood": "Bronx",
+      "city": "New York",
+      "state": "New York",
+      "country": "United States",
+      "capacity": 46537,
+      "openedYear": 2009,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Yankee_Stadium_overhead_2010.jpg/2560px-Yankee_Stadium_overhead_2010.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Yankee_Stadium"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-73.92574534976109, 40.82977246001173]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-2",
+      "team": "Boston Red Sox",
+      "name": "Fenway Park",
+      "league": "MLB",
+      "neighborhood": "Fenway-Kenmore",
+      "city": "Boston",
+      "state": "Massachusetts",
+      "country": "United States",
+      "capacity": 37755,
+      "openedYear": 1912,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/131023-F-PR861-033_Hanscom_participates_in_World_Series_pregame_events.jpg/2560px-131023-F-PR861-033_Hanscom_participates_in_World_Series_pregame_events.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Fenway_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-71.09664917482321, 42.346827031430784]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-3",
+      "team": "Tampa Bay Rays",
+      "name": "George M. Steinbrenner Field",
+      "league": "MLB",
+      "neighborhood": "Drew Park",
+      "city": "St. Petersburg",
+      "state": "Florida",
+      "country": "United States",
+      "capacity": 11026,
+      "openedYear": 1996,
+      "surfaceType": "grasss",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/MacDill_Aircrew%2C_service_members_kick_off_opening_day_ceremony_for_TB_Rays_%28250328-F-YW699-1029%29.jpg/2560px-MacDill_Aircrew%2C_service_members_kick_off_opening_day_ceremony_for_TB_Rays_%28250328-F-YW699-1029%29.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/George_M._Steinbrenner_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-82.50541410271047, 27.980630876566504]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-4",
+      "team": "Baltimore Orioles",
+      "name": "Oriole Park at Camden Yards",
+      "league": "MLB",
+      "neighborhood": "Camden Yards",
+      "city": "Baltimore",
+      "state": "Maryland",
+      "country": "United States",
+      "capacity": 48876,
+      "openedYear": 1992,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Camden_Yards.jpg/2560px-Camden_Yards.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Oriole_Park_at_Camden_Yards"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-76.6207769810585, 39.28413493521954]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-5",
+      "team": "Toronto Blue Jays",
+      "name": "Rogers Centre",
+      "league": "MLB",
+      "neighborhood": "Entertainment District",
+      "city": "Toronto",
+      "state": "Ontario",
+      "country": "Canada",
+      "capacity": 39150,
+      "openedYear": 1989,
+      "surfaceType": "turf",
+      "roofType": "dome",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Rogers_Centre_%28500_Level%29_-_Toronto%2C_ON.jpg/2560px-Rogers_Centre_%28500_Level%29_-_Toronto%2C_ON.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Rogers_Centre"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-79.38878447290904, 43.641855279857985]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-6",
+      "team": "Cleveland Guardians",
+      "name": "Progressive Field",
+      "league": "MLB",
+      "neighborhood": "Downtown",
+      "city": "Cleveland",
+      "state": "Ohio",
+      "country": "United States",
+      "capacity": 34820,
+      "openedYear": 1994,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Cleveland_Guardians_vs._New_York_Yankees_on_Oct_17_2024_%2854102149292%29.jpg/2560px-Cleveland_Guardians_vs._New_York_Yankees_on_Oct_17_2024_%2854102149292%29.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Progressive_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-81.68468335952117, 41.49603671791289]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-7",
+      "team": "Chicago White Sox",
+      "name": "Rate Field",
+      "league": "MLB",
+      "neighborhood": "Bridgeport",
+      "city": "Chicago",
+      "state": "Illinois",
+      "country": "United States",
+      "capacity": 40615,
+      "openedYear": 1991,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Chicago%2C_Illinois%2C_U.S._%282023%29_-_062.jpg/2560px-Chicago%2C_Illinois%2C_U.S._%282023%29_-_062.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Rate_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-87.63315271588255, 41.83002879829294]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-8",
+      "team": "Kansas City Royals",
+      "name": "Kauffmann Stadium",
+      "league": "MLB",
+      "city": "Kansas City",
+      "state": "Missouri",
+      "country": "United States",
+      "capacity": 37903,
+      "openedYear": 1973,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Kauffman2017.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Kauffman_Stadium"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-94.48070165726004, 39.05271686307503]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-9",
+      "team": "Minnesota Twins",
+      "name": "Target Field",
+      "league": "MLB",
+      "neighborhood": "Historic Warehouse District",
+      "city": "Minneapolis",
+      "state": "Minnesota",
+      "country": "United States",
+      "capacity": 39504,
+      "openedYear": 2010,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Target_Field_Aerial.jpg/2560px-Target_Field_Aerial.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Target_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-93.27737171092963, 44.98198581374246]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-10",
+      "team": "Detroit Tigers",
+      "name": "Comerica Park",
+      "league": "MLB",
+      "neighborhood": "Detroit",
+      "city": "Michigan",
+      "state": "New York",
+      "country": "United States",
+      "capacity": 41083,
+      "openedYear": 2000,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Detroit_Tigers_opening_game_at_Comerica_Park%2C_2007.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Comerica_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-83.04828586688241, 42.33913488033143]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-11",
+      "team": "Los Angeles Angels",
+      "name": "Angel Stadium",
+      "league": "MLB",
+      "neighborhood": "Platinum Triangle",
+      "city": "Anaheim",
+      "state": "California",
+      "country": "United States",
+      "capacity": 43250,
+      "openedYear": 1966,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Angelstadiummarch2019.jpg/2560px-Angelstadiummarch2019.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Angel_Stadium"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-117.88230891514172, 33.80017009312595]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-12",
+      "team": "Houston Astros",
+      "name": "Daikin Park",
+      "league": "MLB",
+      "neighborhood": "Downtown",
+      "city": "Houston",
+      "state": "Texas",
+      "country": "United States",
+      "capacity": 41168,
+      "openedYear": 2000,
+      "surfaceType": "grass",
+      "roofType": "retractable",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Houston%2C_Texas_%282024%29_-_09.jpg/2560px-Houston%2C_Texas_%282024%29_-_09.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Daikin_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-95.35475977860018, 29.75838629773909]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-13",
+      "team": "Athletics",
+      "name": "Sutter Health Park",
+      "league": "MLB",
+      "city": "West Sacramento",
+      "state": "California",
+      "country": "United States",
+      "capacity": 10624,
+      "openedYear": 2000,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sutter_Health_Park_aerial_view_2023_%28Quintin_Soloviev%29.jpg/2560px-Sutter_Health_Park_aerial_view_2023_%28Quintin_Soloviev%29.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Sutter_Health_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-121.51388273849226, 38.57998263322653]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-14",
+      "team": "Seattle Mariners",
+      "name": "T-Mobile Park",
+      "league": "MLB",
+      "neighborhood": "SoDo",
+      "city": "Seattle",
+      "state": "Washington",
+      "country": "United States",
+      "capacity": 47929,
+      "openedYear": 1999,
+      "surfaceType": "grass",
+      "roofType": "retractable",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/SafecoFieldTop.jpg/2560px-SafecoFieldTop.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/T-Mobile_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.33182462083383, 47.59183868488012]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-15",
+      "team": "Texas Rangers",
+      "name": "Globe Life Field",
+      "league": "MLB",
+      "neighborhood": "Bronx",
+      "city": "Arlington",
+      "state": "Texas",
+      "country": "United States",
+      "capacity": 40300,
+      "openedYear": 2020,
+      "surfaceType": "turf",
+      "roofType": "retractable",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/GlobeLifeField2021.jpg/2560px-GlobeLifeField2021.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Globe_Life_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-97.0814027055616, 32.747160598368275]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-16",
+      "team": "New York Mets",
+      "name": "Citi Field",
+      "league": "MLB",
+      "neighborhood": "Queens",
+      "city": "New York",
+      "state": "New York",
+      "country": "United States",
+      "capacity": 41922,
+      "openedYear": 2009,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/New_York_City_FC_at_Citi_Field.jpg/2560px-New_York_City_FC_at_Citi_Field.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Citi_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-73.84555435161494, 40.757148656045054]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-17",
+      "team": "Atlanta Braves",
+      "name": "Truist Park",
+      "league": "MLB",
+      "city": "Cumberland",
+      "state": "Georgia",
+      "country": "United States",
+      "capacity": 41108,
+      "openedYear": 2017,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Truist_Park_2025.jpg/2560px-Truist_Park_2025.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Truist_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-84.46740883896197, 33.89130781289281]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-18",
+      "team": "Philadelphia Phillies",
+      "name": "Citizens Bank Park",
+      "league": "MLB",
+      "neighborhood": "South Philadelphia",
+      "city": "Philadelphia",
+      "state": "Pennsylvania",
+      "country": "United States",
+      "capacity": 42901,
+      "openedYear": 2004,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Citizens_Bank_Park_2021.jpg/2560px-Citizens_Bank_Park_2021.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Citizens_Bank_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-75.15624433865061, 39.90944528358358]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-19",
+      "team": "Miami Marlins",
+      "name": "Loan Depot Park",
+      "league": "MLB",
+      "neighborhood": "Little Havana",
+      "city": "Miami",
+      "state": "Florida",
+      "country": "United States",
+      "capacity": 36742,
+      "openedYear": 2012,
+      "surfaceType": "turf",
+      "roofType": "retractable",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/LOAN_DEPOT_PARK.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/LoanDepot_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-80.21952470193655, 25.778380544774063]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-20",
+      "team": "Washington Nationals",
+      "name": "Nationals Park",
+      "league": "MLB",
+      "neighborhood": "Navy Yard",
+      "city": "Washington",
+      "state": "District of Columbia",
+      "country": "United States",
+      "capacity": 41373,
+      "openedYear": 2008,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Nationals_Park_8.16.19_-_7.jpg/2560px-Nationals_Park_8.16.19_-_7.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Nationals_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-77.00700374985153, 38.87313546385513]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-21",
+      "team": "Cincinnati Reds",
+      "name": "Great American Ball Park",
+      "league": "MLB",
+      "neighborhood": "Downtown",
+      "city": "Cincinnati",
+      "state": "Ohio",
+      "country": "United States",
+      "capacity": 43500,
+      "openedYear": 2003,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/10Cincinnati_2015_%282%29.jpg/2560px-10Cincinnati_2015_%282%29.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Great_American_Ball_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-84.50777253367295, 39.09752937840717]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-22",
+      "team": "St. Louis Cardinals",
+      "name": "Busch Stadium",
+      "league": "MLB",
+      "neighborhood": "Ballpark Village",
+      "city": "St. Louis",
+      "state": "Missouri",
+      "country": "United States",
+      "capacity": 44383,
+      "openedYear": 2006,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Busch_Stadium_2022.jpg/2560px-Busch_Stadium_2022.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Busch_Stadium"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0, 0]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-23",
+      "team": "Chicago Cubs",
+      "name": "Wrigley Field",
+      "league": "MLB",
+      "neighborhood": "Lakeview",
+      "city": "Chicago",
+      "state": "Illinois",
+      "country": "United States",
+      "capacity": 41649,
+      "openedYear": 1914,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wrigley_Field_in_line_with_sign.jpg/2560px-Wrigley_Field_in_line_with_sign.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Wrigley_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-87.65453876929116, 41.94869371587908]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-24",
+      "team": "Pittsburgh Pirates",
+      "name": "PNC Park",
+      "league": "MLB",
+      "neighborhood": "North Shore",
+      "city": "Pittsburgh",
+      "state": "Pennsylvania",
+      "country": "United States",
+      "capacity": 37898,
+      "openedYear": 2001,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Pittsburgh_Pirates_park_%28Unsplash%29.jpg/2560px-Pittsburgh_Pirates_park_%28Unsplash%29.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/PNC_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-80.00662386142123, 40.447779427635375]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-25",
+      "team": "Milwaukee Brewers",
+      "name": "American Family Field",
+      "league": "MLB",
+      "neighborhood": "Menomonee Valley",
+      "city": "Milwaukee",
+      "state": "Wisconsin",
+      "country": "United States",
+      "capacity": 41900,
+      "openedYear": 2001,
+      "surfaceType": "grass",
+      "roofType": "retractable",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/MillerPark2.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/American_Family_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-87.96863739012187, 43.02867470384725]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-26",
+      "team": "Los Angeles Dodgers",
+      "name": "Dodger Stadium",
+      "league": "MLB",
+      "neighborhood": "Elysian Park",
+      "city": "Los Angeles",
+      "state": "California",
+      "country": "United States",
+      "capacity": 56000,
+      "openedYear": 1962,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Dodger_Stadium_and_Chavez_Ravine_far_view%2C_Chicago_Cubs_at_Los_Angeles_Dodgers%2C_%28April_12%2C_2025%29.jpg/2560px-Dodger_Stadium_and_Chavez_Ravine_far_view%2C_Chicago_Cubs_at_Los_Angeles_Dodgers%2C_%28April_12%2C_2025%29.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Dodger_Stadium"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-118.2395076923859, 34.07403759716397]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-27",
+      "team": "Arizona Diamondbacks",
+      "name": "Chase Field",
+      "league": "MLB",
+      "neighborhood": "Downtown",
+      "city": "Phoenix",
+      "state": "Arizona",
+      "country": "United States",
+      "capacity": 48330,
+      "openedYear": 1998,
+      "surfaceType": "turf",
+      "roofType": "retractable",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Reserve_A-10_Warthogs_Flyover_2023_World_Series_%288099146%29.jpg/2560px-Reserve_A-10_Warthogs_Flyover_2023_World_Series_%288099146%29.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Chase_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-112.06565767760725, 33.44558503658491]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-28",
+      "team": "San Diego Padres",
+      "name": "Petco Park",
+      "league": "MLB",
+      "neighborhood": "Gaslamp Quarter",
+      "city": "San Diego",
+      "state": "California",
+      "country": "United States",
+      "capacity": 39860,
+      "openedYear": 2004,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Petco_Park_Padres_Game.jpg/2560px-Petco_Park_Padres_Game.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Petco_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-117.15620365435196, 32.70788810309325]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-29",
+      "team": "Colorado Rockies",
+      "name": "Coors Field",
+      "league": "MLB",
+      "neighborhood": "Lower Downtown",
+      "city": "Denver",
+      "state": "Colorado",
+      "country": "United States",
+      "capacity": 46897,
+      "openedYear": 1995,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Coors_Field_July_2015.jpg/2560px-Coors_Field_July_2015.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Coors_Field"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-104.99381355166163, 39.75625613622952]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "mlb-30",
+      "team": "San Francisco Giants",
+      "name": "Oracle Park",
+      "league": "MLB",
+      "neighborhood": "South Beach",
+      "city": "San Francisco",
+      "state": "Giants",
+      "country": "United States",
+      "capacity": 41331,
+      "openedYear": 2000,
+      "surfaceType": "grass",
+      "roofType": "open",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Oracle_Park_2021.jpg/2560px-Oracle_Park_2021.jpg",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Oracle_Park"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.38926174101742, 37.77850955859807]
+    }
+  }
+]
