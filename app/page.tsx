@@ -1,20 +1,33 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
+import { useTheme } from "next-themes"
+
 import Map, { type TMapMarker } from "@/components/ui/map"
 import { Placeholder } from "@/components/ui/placeholder"
-
 import { type StadiumFeature, type Stadium } from "@/lib/types"
 import { LoaderCircle } from "lucide-react"
 
 export default function Home() {
+  const { theme } = useTheme()
+
   const [loading, setLoading] = useState(true)
   const [stadiums, setStadiums] = useState<StadiumFeature[] | null>(null)
+  const [mapStyle, setMapStyle] = useState<string>(theme === "dark"
+    ? "mapbox://styles/mapbox/dark-v11"
+    : "mapbox://styles/mapbox/light-v11"
+  )
 
   // fetch all stadiums on mount
   useEffect(() => {
     fetchStadiums()
   }, [])
+
+  // toggle the map style URL as theme changes
+  useEffect(() => {
+    if (theme === "dark") setMapStyle("mapbox://styles/mapbox/dark-v11")
+    else setMapStyle("mapbox://styles/mapbox/light-v11")
+  }, [theme])
 
   // handler to fetch stadiums via api
   const fetchStadiums = async () => {
@@ -48,10 +61,15 @@ export default function Home() {
     <main className="w-full h-full relative">
       { loading && (
         <Placeholder className="absolute z-10 bg-black/50">
-          <LoaderCircle className="animate-spin" width="40" height="40"/>
+          <LoaderCircle
+            className="animate-spin"
+            width="40"
+            height="40"
+          />
         </Placeholder>
       )}
       <Map
+        mapStyle={mapStyle}
         markers={mapMarkers ?? []}
         renderTooltip={renderStadiumTooltip}
       />

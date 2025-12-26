@@ -14,9 +14,11 @@ export type TMapMarker<T> = {
 }
 
 function Map({
+  mapStyle = "mapbox://styles/mapbox/light-v11",
   markers = [],
   renderTooltip,
 }: {
+  mapStyle?: string
   markers?: TMapMarker<any>[]
   renderTooltip?: (marker: TMapMarker<any>) => string
 }) {
@@ -47,7 +49,7 @@ function Map({
       mapboxAccessToken={token}
       initialViewState={{zoom: 1}}
       style={{width: "100%", height: "100%"}}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
+      mapStyle={mapStyle}
       // southwest, northeast (lng, lat)
       maxBounds={[[-130, 22],[-60, 53]]}
     >

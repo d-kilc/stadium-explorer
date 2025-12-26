@@ -1,19 +1,10 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
+import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
+import "./globals.css"
 import { cn } from "@/lib/utils"
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
+import { AppHeader } from "@/components/app-header"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head/>
       <body
         className={cn(
           geistSans.variable,
@@ -45,23 +37,18 @@ export default function RootLayout({
           "antialiased"
         )}
       >
-        <div className="p-2 max-w-screen border-b border-red-500 flex-none flex items-center justify-between">
-          <span>Stadium Explorer</span>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <NavigationMenuLink>Link</NavigationMenuLink>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-        <div className="flex-1">
-          {children}
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          // disableTransitionOnChange
+        >
+          <AppHeader />
+          <div className="flex-1">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
