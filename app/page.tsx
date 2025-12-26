@@ -1,19 +1,22 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
-import { Button } from "@/components/ui/button"
-import { Map, type TMapMarker } from "@/components/ui/map"
+import Map, { type TMapMarker } from "@/components/ui/map"
 import { Placeholder } from "@/components/ui/placeholder"
-import { Popup } from "react-map-gl/mapbox"
-import { type Popup as TPopup } from "mapbox-gl"
 
-import { type StadiumFeature } from "@/lib/types"
+import { type StadiumFeature, type Stadium } from "@/lib/types"
 import { LoaderCircle } from "lucide-react"
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
   const [stadiums, setStadiums] = useState<StadiumFeature[] | null>(null)
 
+  // fetch all stadiums on mount
+  useEffect(() => {
+    fetchStadiums()
+  }, [])
+
+  // handler to fetch stadiums via api
   const fetchStadiums = async () => {
     setLoading(true)
     try {
@@ -28,21 +31,18 @@ export default function Home() {
     }
   }
 
-  // fetch all stadiums on mount
-  useEffect(() => {
-    fetchStadiums()
-  }, [])
-
-  const mapMarkers: TMapMarker[] | null = useMemo(() => {
+  // format StadiumFeatures into TMapMarkers to pass to map component 
+  const mapMarkers: TMapMarker<Stadium>[] | null = useMemo(() => {
     if (!stadiums) return null
     return stadiums.map((s) => ({ feature: s }))
   }, [stadiums])
 
-  // const renderStadiumPopup = (m: TMapMarker) => {
-  //   return (
-  //     <Popup></Popup>
-  //   )
-  // } 
+  
+  const renderStadiumTooltip = (m: TMapMarker<Stadium>) => {
+    return `
+      <h1>${m.feature.properties.name}</h1>
+    `
+  } 
 
   return (
     <main className="w-full h-full relative">
@@ -51,7 +51,10 @@ export default function Home() {
           <LoaderCircle className="animate-spin" width="40" height="40"/>
         </Placeholder>
       )}
-      <Map markers={mapMarkers ?? []}/>
+      <Map
+        markers={mapMarkers ?? []}
+        renderTooltip={renderStadiumTooltip}
+      />
     </main>
   );
 }

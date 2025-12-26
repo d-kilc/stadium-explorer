@@ -1,6 +1,6 @@
 import { type Feature, type Point } from "geojson"
 
-export interface StadiumProperties {
+export interface Stadium {
   id: string;
   team: string;
   name: string;
@@ -17,5 +17,5 @@ export interface StadiumProperties {
   wikipediaUrl: string;
 }
 
-export type StadiumFeature = Feature<Point, StadiumProperties>
+export type StadiumFeature = Feature<Point, Stadium>
 
