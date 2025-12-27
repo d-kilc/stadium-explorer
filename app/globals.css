@@ -123,3 +123,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.mapboxgl-popup {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
+  border-radius: 10px !important;
+  background: unset !important;
+}
+
+.mapboxgl-popup-tip {
+  display: none !important;
+}

@@ -9,7 +9,10 @@ export async function GET(request: NextRequest) {
     const fileContents = await readFile(filePath, 'utf-8');
     const features: StadiumFeature[] = JSON.parse(fileContents);
     
-    return Response.json(features);
+    return Response.json({
+      type: "FeatureCollection",
+      features
+    });
   } catch (error) {
     console.error('Error reading stadiums data:', error);
     return Response.json(

@@ -1,6 +1,6 @@
 import { type Feature, type Point } from "geojson"
 
-export interface Stadium {
+export type Stadium =  {
   id: string;
   team: string;
   name: string;

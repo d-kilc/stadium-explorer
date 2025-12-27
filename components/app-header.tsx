@@ -15,8 +15,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 export function AppHeader() {
   return (
-    <div className="shadow-xl p-2 max-w-screen border-b-2 flex-none flex items-center justify-between">
-      <span>Stadium Explorer</span>
+    <div className="shadow-xl pl-6 py-2 pr-2 max-w-screen border-b-2 flex-none flex items-center justify-between">
+      <span className="font-semibold text-lg">Stadium Explorer</span>
       {/* <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
