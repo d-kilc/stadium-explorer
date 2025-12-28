@@ -6,24 +6,30 @@ import { useTheme } from "next-themes"
 import Map, { type MapLayer } from "@/components/ui/map"
 import { Placeholder } from "@/components/ui/placeholder"
 import { SideDrawer } from "@/components/ui/side-drawer"
-import { StadiumTooltip } from "@/components/stadium/stadium-tooltip"
+// import { StadiumTooltip } from "@/components/stadium/stadium-tooltip"
+import { StadiumFilters } from "@/components/stadium/stadium-filters"
 import { StadiumCard } from "@/components/stadium/stadium-card"
 
 import { type LayerOptions } from "@/components/ui/map"
-import { type StadiumFeature, type Stadium } from "@/lib/types"
+import {
+  type StadiumFeature,
+  type Stadium,
+  type StadiumFilterOptions,
+  type StadiumFilterSelection
+} from "@/lib/types"
 import { type FeatureCollection, type Point } from "geojson"
 import { type GeoJSONFeature } from "mapbox-gl"
 
 import { LoaderCircle } from "lucide-react"
 
-import { pxToLongitudeOffset } from "@/lib/utils"
-import { StadiumFilters } from "@/components/stadium/stadium-filters"
+import { cn, pxToLongitudeOffset } from "@/lib/utils"
 
 export default function Home() {
   const { theme } = useTheme()
 
   const [loading, setLoading] = useState(true)
   const [stadiums, setStadiums] = useState<FeatureCollection<Point, Stadium> | null>(null)
+  const [filterSelection, setFilterSelection] = useState<StadiumFilterSelection | null>(null)
   const [selectedStadium, setSelectedStadium] = useState<StadiumFeature | null>(null)
   const [mapStyle, setMapStyle] = useState<string>(theme === "dark"
     ? "mapbox://styles/mapbox/dark-v11"
@@ -41,6 +47,31 @@ export default function Home() {
     else setMapStyle("mapbox://styles/mapbox/light-v11")
   }, [theme])
 
+  const filterOptions: StadiumFilterOptions | null = useMemo(() => {
+    if (!stadiums) return null
+    // get earliest open year
+    const startYear = Math.min(...stadiums.features.map(s => s.properties.openedYear))
+    const endYear = new Date().getFullYear()
+    return {
+      openedYear: { startYear, endYear },
+      surfaceType: ["turf", "grass", "all"],
+      roofType: ["open", "dome", "retractable", "all"]
+    }
+  }, [stadiums]) 
+
+  // set the filters to default state once stadiums are loaded and options are set
+  useEffect(() => {
+    if (!filterOptions) return
+    setFilterSelection({
+      openedYear: {
+        startYear: filterOptions.openedYear.startYear,
+        endYear: filterOptions.openedYear.endYear
+      },
+      surfaceType: "all",
+      roofType: "all"
+    })
+  }, [filterOptions])
+
   // handler to fetch stadiums via api
   const fetchStadiums = async () => {
     setLoading(true)
@@ -55,6 +86,33 @@ export default function Home() {
       setLoading(false)
     }
   }
+
+  const filteredStadiums = useMemo(() => {
+    if (!stadiums || !filterSelection) return null
+    return {
+      ...stadiums,
+      features: stadiums.features.filter((s) => {
+        return (
+          (filterSelection.roofType === "all"
+              ? true
+              : s.properties.roofType === filterSelection.roofType
+          ) && (
+            filterSelection.surfaceType === "all"
+              ? true
+              : s.properties.surfaceType === filterSelection.surfaceType
+          ) && (
+            s.properties.openedYear >= filterSelection.openedYear.startYear
+            && s.properties.openedYear <= filterSelection.openedYear.endYear
+          )
+        ) 
+      })
+    }
+
+  }, [stadiums, filterSelection])
+
+  useEffect(() => {
+    console.log("filterSelection", filterSelection)
+  }, [filterSelection])
 
   // derive the map center and zoom from the selected stadium, or default values if null
   const { mapZoom, mapCenter } = useMemo(() => {
@@ -75,15 +133,14 @@ export default function Home() {
     return { mapZoom, mapCenter }
   }, [selectedStadium])
 
-
   const mapLayers: MapLayer<LayerOptions>[] = useMemo(() => {
     let l: MapLayer<LayerOptions>[] = []
-    if (stadiums) {
+    if (filteredStadiums) {
       l.push({
         type: "cluster",
         options: {
           id: "stadiums",
-          data: stadiums,
+          data: filteredStadiums,
           pointLabelLayout: {
             'text-field': '{name}',
             'text-size': 12,
@@ -118,13 +175,20 @@ export default function Home() {
       })
     }
     return l
-  }, [stadiums])
+  }, [filteredStadiums])
 
   const handleMarkerClick = (m: GeoJSONFeature) => {
     setSelectedStadium({
       type: "Feature",
       geometry: m.geometry as Point,
       properties: m.properties as Stadium
+    })
+  }
+
+  const handleUpdateFilters = (key: keyof StadiumFilterSelection, value: any) => {
+    setFilterSelection((prev) => {
+      if (!prev) return prev
+      return { ...prev, [key]: value }
     })
   }
 
@@ -145,7 +209,11 @@ export default function Home() {
       )}
       <div className="flex-1 relative">
         <div className="absolute z-10 top-4 left-4">
-          <StadiumFilters/>
+          <StadiumFilters
+            selection={filterSelection}
+            options={filterOptions}
+            onUpdateFilters={handleUpdateFilters}
+          />
         </div>
         <Map
           mapStyle={mapStyle}
@@ -162,9 +230,11 @@ export default function Home() {
       </div>
       <div
         className={
-          `transition-all duration-300 ease-in-out overflow-hidden ${
-          selectedStadium ? "w-full max-w-md" : "w-0"
-        }`}
+          cn(
+            "transition-all duration-300 ease-in-out overflow-hidden",
+            selectedStadium ? "w-full max-w-md" : "w-0"
+          )
+        }
       >
         {selectedStadium && (
           <SideDrawer

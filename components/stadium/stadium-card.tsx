@@ -1,7 +1,7 @@
 import { type Stadium } from "@/lib/types"
 import Image from "next/image"
 
-import { renderInt } from "@/lib/utils"
+import { convertToTitleCase, renderInt } from "@/lib/utils"
 import { Button } from "../ui/button"
 
 export function StadiumCard({
@@ -49,7 +49,7 @@ export function StadiumCard({
       </div>
       <div className="flex flex-col gap-0">
         <span className="text-xs text-muted-foreground font-semibold">Surface</span>
-        <span>{renderInt(stadium.capacity)}</span>
+        <span>{convertToTitleCase(stadium.surfaceType)}</span>
       </div>
       <div className="flex flex-col gap-0">
         <span className="text-xs text-muted-foreground font-semibold">Wikipedia</span>

@@ -9,7 +9,7 @@ export function renderInt(int: number) {
   return int.toLocaleString()
 }
 
-// helper function to convert rem to longitude degrees offset
+// converts pixels to longitude degrees offset
 export function pxToLongitudeOffset(px: number, zoom: number, latitude: number) {  
   // convert pixels to meters using web mercator projection
   // at zoom z, 1 pixel = (40075016.686 / (256 * 2^z)) meters
@@ -22,4 +22,14 @@ export function pxToLongitudeOffset(px: number, zoom: number, latitude: number) 
   const metersPerDegree = 111320 * Math.cos(latitudeRad)
   const degrees = meters / metersPerDegree
   return degrees
+}
+
+// splits a string by spaces or underscores and returns as a title-cased string
+export function convertToTitleCase(str: string) {
+  return str
+    .split(/[\s_]+/)
+    .map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    )
+    .join(' ')
 }

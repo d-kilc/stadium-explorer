@@ -19,3 +19,20 @@ export type Stadium =  {
 
 export type StadiumFeature = Feature<Point, Stadium>
 
+export type StadiumFilterOptions = {
+  openedYear: {
+    startYear: number
+    endYear: number
+  }
+  surfaceType: string[]
+  roofType: string[]
+}
+
+export type StadiumFilterSelection = {
+  openedYear: {
+    startYear: number
+    endYear: number
+  }
+  surfaceType: string
+  roofType: string
+}
