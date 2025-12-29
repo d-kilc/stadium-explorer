@@ -77,7 +77,6 @@ function Map<
       const clicked = features[0]
       const clickedLayerId = clicked.layer?.id
       if (!clickedLayerId) return
-      console.log("clicked", clicked)
       if (interactiveLayerIds.includes(clickedLayerId)) {
         onMarkerClick(clicked)
       }
@@ -93,7 +92,6 @@ function Map<
       const hoveredLayerId = hovered.layer?.id
       if (!hoveredLayerId) return
       if (interactiveLayerIds.includes(hoveredLayerId)) {
-        console.log("hovered point", hovered)
         // get hovered coordinates generate the tooltip content
         const coordinates = hovered.geometry.coordinates
         const content = renderTooltip(hovered.properties)

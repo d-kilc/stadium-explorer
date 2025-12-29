@@ -20,19 +20,18 @@ export type Stadium =  {
 export type StadiumFeature = Feature<Point, Stadium>
 
 export type StadiumFilterOptions = {
-  openedYear: {
-    startYear: number
-    endYear: number
-  }
-  surfaceType: string[]
-  roofType: string[]
+  openedYear: { min: number, max: number }
+  surfaceType: Array<SurfaceType | "all">
+  roofType: Array<RoofType | "all">
 }
 
 export type StadiumFilterSelection = {
-  openedYear: {
-    startYear: number
-    endYear: number
-  }
-  surfaceType: string
-  roofType: string
+  openedYear: { min: number, max: number }
+  surfaceType: SurfaceType | "all"
+  roofType: RoofType | "all"
 }
+
+
+export type SurfaceType = "grass" | "turf"
+
+export type RoofType = "open" | "dome" | "retractable"

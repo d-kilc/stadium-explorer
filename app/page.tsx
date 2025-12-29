@@ -1,14 +1,21 @@
 "use client"
 import { useState, useEffect, useMemo } from "react"
-import { renderToString } from "react-dom/server"
+// import { renderToString } from "react-dom/server"
 import { useTheme } from "next-themes"
 
 import Map, { type MapLayer } from "@/components/ui/map"
 import { Placeholder } from "@/components/ui/placeholder"
 import { SideDrawer } from "@/components/ui/side-drawer"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 // import { StadiumTooltip } from "@/components/stadium/stadium-tooltip"
-import { StadiumFilters } from "@/components/stadium/stadium-filters"
+import { StadiumFilters } from "@/components/stadium/stadium-filters/stadium-filters"
 import { StadiumCard } from "@/components/stadium/stadium-card"
+import { useMediaQuery } from "@/hooks"
 
 import { type LayerOptions } from "@/components/ui/map"
 import {
@@ -22,10 +29,11 @@ import { type GeoJSONFeature } from "mapbox-gl"
 
 import { LoaderCircle } from "lucide-react"
 
-import { cn, pxToLongitudeOffset } from "@/lib/utils"
+import { pxToLongitudeOffset } from "@/lib/utils"
 
 export default function Home() {
   const { theme } = useTheme()
+  const isDesktop = useMediaQuery("(min-width: 768px)")
 
   const [loading, setLoading] = useState(true)
   const [stadiums, setStadiums] = useState<FeatureCollection<Point, Stadium> | null>(null)
@@ -50,10 +58,10 @@ export default function Home() {
   const filterOptions: StadiumFilterOptions | null = useMemo(() => {
     if (!stadiums) return null
     // get earliest open year
-    const startYear = Math.min(...stadiums.features.map(s => s.properties.openedYear))
-    const endYear = new Date().getFullYear()
+    const min = Math.min(...stadiums.features.map(s => s.properties.openedYear))
+    const max = new Date().getFullYear()
     return {
-      openedYear: { startYear, endYear },
+      openedYear: { min, max },
       surfaceType: ["turf", "grass", "all"],
       roofType: ["open", "dome", "retractable", "all"]
     }
@@ -62,11 +70,9 @@ export default function Home() {
   // set the filters to default state once stadiums are loaded and options are set
   useEffect(() => {
     if (!filterOptions) return
+    const { min, max } = filterOptions.openedYear
     setFilterSelection({
-      openedYear: {
-        startYear: filterOptions.openedYear.startYear,
-        endYear: filterOptions.openedYear.endYear
-      },
+      openedYear: { min, max },
       surfaceType: "all",
       roofType: "all"
     })
@@ -101,8 +107,8 @@ export default function Home() {
               ? true
               : s.properties.surfaceType === filterSelection.surfaceType
           ) && (
-            s.properties.openedYear >= filterSelection.openedYear.startYear
-            && s.properties.openedYear <= filterSelection.openedYear.endYear
+            s.properties.openedYear >= filterSelection.openedYear.min
+            && s.properties.openedYear <= filterSelection.openedYear.max
           )
         ) 
       })
@@ -110,17 +116,19 @@ export default function Home() {
 
   }, [stadiums, filterSelection])
 
-  useEffect(() => {
-    console.log("filterSelection", filterSelection)
-  }, [filterSelection])
-
   // derive the map center and zoom from the selected stadium, or default values if null
+  // when stadium is selected, only run the transition if in desktop mode.
   const { mapZoom, mapCenter } = useMemo(() => {
     let mapZoom: number, mapCenter: [number, number]
-    if (!selectedStadium) {
+    if (!selectedStadium || !isDesktop) {
       // default view
       mapCenter = [-95, 39.2]
-      mapZoom = 3.85
+      if (isDesktop) {
+        mapZoom = 3.85
+      } else { 
+        // zoom further out on mobile
+        mapZoom = 2
+      }
     } else {
       const { coordinates } = selectedStadium.geometry
       const [longitude, latitude] = coordinates as [number, number]
@@ -131,7 +139,7 @@ export default function Home() {
       mapZoom = 14
     }
     return { mapZoom, mapCenter }
-  }, [selectedStadium])
+  }, [selectedStadium, isDesktop])
 
   const mapLayers: MapLayer<LayerOptions>[] = useMemo(() => {
     let l: MapLayer<LayerOptions>[] = []
@@ -228,23 +236,39 @@ export default function Home() {
           center={mapCenter}
         />
       </div>
-      <div
-        className={
-          cn(
-            "transition-all duration-300 ease-in-out overflow-hidden",
-            selectedStadium ? "w-full max-w-md" : "w-0"
-          )
-        }
-      >
-        {selectedStadium && (
+
+        {/* desktop: show details in sidedrawer */}
+        {isDesktop && (
           <SideDrawer
-            title={selectedStadium.properties.name}
+            open={!!selectedStadium}
+            title={selectedStadium?.properties.name ?? ""}
             onClose={() => setSelectedStadium(null)}
           >
-            <StadiumCard stadium={selectedStadium.properties}/>
+            { selectedStadium && (
+              <StadiumCard stadium={selectedStadium.properties}/>
+            )}
           </SideDrawer>
         )}
-      </div>
+
+        {/* mobile: show details in modal */}
+        {!isDesktop && (
+          <Dialog
+            open={!!selectedStadium}
+            onOpenChange={(open) => {
+              if (!open) setSelectedStadium(null)
+            }}
+          >
+            <DialogContent className="max-w-[90vw] sm:max-w-lg max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>{selectedStadium?.properties.name ?? ""}</DialogTitle>
+              </DialogHeader>
+              { selectedStadium && (
+                <StadiumCard stadium={selectedStadium.properties}/>
+              )}
+            </DialogContent>
+          </Dialog>
+        )}
+
     </main>
   );
 }
